@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badges</title>
+    <link href="img/favicon.ico" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <div class="layout">
+        <div class="side-menu">
+            <div class="app-name">
+                <h1><a href="index.html">Expense Tracker</a></h1>
+            </div>
+            <ul>
+                <li><a href="index.html">
+                    <i class="material-icons">dashboard</i>
+                        Dashboard
+                    </a>
+                </li>
+                <li><a href="infographics.html">
+                    <i class="material-icons">pie_chart</i>
+                        Pie Chart
+                    </a>
+                </li>
+                <li><a href="aboutUs.html">
+                    <i class="material-icons">person</i>
+                        About Us
+                    </a>
+                </li>
+                <li><a href="badges.html">
+                    <i class="material-icons">device_hub</i>
+                        Badges
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <!-- HEADER -->
+            <div class="header">
+                <h2>Badges</h2>
+                <div class="profile-dropdown">
+                    <a href="#" class="profile-link">
+                        <i class="material-icons">account_circle</i>
+                        Profile
+                    </a>
+                    <div class="dropdown-content">
+                        <img src="img/avatar.jpg" alt="User Image" class="user-image">
+                        <p class="username">Cristiano Ronaldo</p>
+                        <p class="user-email">cr7_2024@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT -->
+            <div class="content">
+                <h2 class="badge-mainHeader">Your Expenses Summary</h2>
+                <div id="badges">
+                    <div class="badge" id="Food">
+                        <i class="material-icons">fastfood</i>
+                        <h3>Food</h3>
+                    </div>
+                    <div class="badge" id="Rent">
+                        <i class="material-icons">bedroom_parent</i>
+                        <h3>Rent</h3>
+                    </div>
+                    <div class="badge" id="Transportation">
+                        <i class="material-icons">commute</i>
+                        <h3>Transportation</h3>
+                    </div>
+                    <div class="badge" id="Utilities">
+                        <i class="material-icons">devices_other</i>
+                        <h3>Utilities</h3>
+                    </div>
+                    <div class="badge" id="Entertainment">
+                        <i class="material-icons">movie</i>
+                        <h3>Entertainment</h3>
+                    </div>
+                    <div class="badge" id="Healthcare">
+                        <i class="material-icons">health_and_safety</i>
+                        <h3>Healthcare</h3>
+                    </div>
+                    <div class="badge" id="Education">
+                        <i class="material-icons">school</i>
+                        <h3>Education</h3>
+                    </div>
+                    <div class="badge" id="Clothing">
+                        <i class="material-icons">shop</i>
+                        <h3>Clothing</h3>
+                    </div>
+                    <div class="badge" id="Other">
+                        <i class="material-icons">category</i>
+                        <h3>Other</h3>
+                    </div>
+                </div>
+
+                <div id="badge-info">
+                    <h3>Color Palette</h3>
+                    <div class="color-palette">
+                        <div class="color-box"><img src="img/highest.png" alt=""></div>
+                        <p>Highest Spending Category: <span id="highest-category-total"></span></p>   
+                    </div>
+                    <div class="color-palette">
+                        <div class="color-box"><img src="img/lowest.png" alt=""></div>
+                        <p>Lowest Spending Category: <span id="lowest-category-total"></span></p>   
+                    </div>
+                    <div class="color-palette">
+                        <div class="color-box"><img src="img/medium.png" alt=""></div>
+                        <p>Medium Spending Categories</p>   
+                    </div>
+                    <div class="color-palette">
+                        <div class="color-box"><img src="img/unused.png" alt=""></div>
+                        <p>Categories not used currently.</p>   
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="footer">
+                <p>An Expense Tracker website developed by <b>Sarthak.</b></p>
+                <p class="copyright">Copyright &copy; 2024, Javascript</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</body>
+</html>

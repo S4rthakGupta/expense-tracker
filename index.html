@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link href="img/favicon.ico" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <div class="layout">
+        <div class="side-menu">
+            <div class="app-name">
+                <h1><a href="index.html">Expense Tracker</a></h1>
+            </div>
+            <ul>
+                <li><a href="index.html">
+                    <i class="material-icons">dashboard</i>
+                        Dashboard
+                    </a>
+                </li>
+                <li><a href="infographics.html">
+                    <i class="material-icons">pie_chart</i>
+                        Pie Chart
+                    </a>
+                </li>
+                <li><a href="aboutUs.html">
+                    <i class="material-icons">person</i>
+                        About Us
+                    </a>
+                </li>
+                <li><a href="badges.html">
+                    <i class="material-icons">device_hub</i>
+                        Badges
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <!-- HEADER -->
+            <div class="header">
+                <h2>Dashboard</h2>
+                <div class="profile-dropdown">
+                    <a href="#" class="profile-link">
+                        <i class="material-icons">account_circle</i>
+                        Profile
+                    </a>
+                    <div class="dropdown-content">
+                        <img src="img//avatar.png" alt="User Image" class="user-image">
+                        <p class="username">Sarthak Gupta</p>
+                        <p class="user-email">s4rthak.gupta@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT -->
+            <div class="content">
+
+                <!-- Budget Expenses Information Cards -->
+                <div id="budget-metrics">
+                    <div class="card total-expenses-card">
+                        <i class="material-icons">monetization_on</i>
+                        <h3>Total Expenses</h3>
+                        <p id="total-expenses-amount-card">$0</p>
+                    </div>
+                    <div class="card remaining-budget-card">
+                        <i class="material-icons">savings</i>
+                        <h3>Remaining Budget</h3>
+                        <p id="remaining-budget-amount-card">$0</p>
+                    </div>
+                    <div class="card expenses-count-card">
+                        <i class="material-icons">score</i>
+                        <h3>Expenses Count</h3>
+                        <p id="total-number-expenses-card">0</p>
+                    </div>
+                </div>
+
+                <!-- Notify user when the remaining budget is less than $100 -->
+                <div id="notify-low-budget"></div>
+
+                <!-- Expense Table -->
+                <div class="expense-container" id="expense-form-container">
+                    <h3>Calculate your Expenses</h3>
+
+                    <div class="monthly-budget">
+                        <label for="monthly-budget-input">Monthly Budget ($):</label>
+                        <input type="number" id="monthly-budget-input" placeholder="Monthly budget">
+                        <span class="error" id="monthly-budget-error"></span>
+                    </div>
+                
+                    <!-- Exense Form -->
+                    <div class="expense-form">
+                        <label for="expense-description">Expense Details:</label>
+                        <input type="text" id="expense-description" placeholder="Expense Details (Eg: Rent payment for April, Grocery Shopping, etc)">
+
+                        <div class="form-flex">
+                            <div>
+                                <label for="expense-date">Date:</label>
+                                <input type="text" id="expense-date" placeholder="Date">
+                            </div>
+
+                            <div>
+                                <label for="expense-category">Select Category:</label>
+                                <select id="expense-category">
+                                    <option value="food">Food</option>
+                                    <option value="rent">Rent</option>
+                                    <option value="transportation">Transportation</option>
+                                    <option value="utilities">Utilities</option>
+                                    <option value="entertainment">Entertainment</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="education">Education</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="other">Other</option>
+                                </select>        
+                            </div>
+                        </div>
+                       
+                        <label for="expense-amount">Amount:</label>
+                        <div class="amount-wrapper">
+                            <input type="number" id="expense-amount" placeholder="Total Expense Amount">
+                        </div>
+
+                        <div id="expense-buttons">
+                            <button id="add-expense-btn" class="btn">Add Expense</button>
+                            <button id="reset-expense-btn" class="reset-expense-button btn">Reset Budget</button>
+                        </div>   
+
+                        <div class="error" id="error-message">Please correctly fill in all the form values</div>
+                        <div class="success" id="success-message">Expense added successfully!</div>
+                    </div>
+                </div>
+
+                <!-- Expense List Display -->
+                <div class="expense-container">
+                    <div class="expense-list">
+                        <h3>Expenses</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="expense-table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="total-expenses">
+                        <h3>Total Expenses: <span id="total-expenses-amount">$0</span></h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <div class="footer">
+                <p>An Expense Tracker website developed by <b>Sarthak.</b></p>
+                <p class="copyright">Copyright &copy; 2024, Javascript</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</body>
+</html>

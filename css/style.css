@@ -1,0 +1,585 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3 {
+    color: #0B2757;
+}
+
+h3 {
+    text-align: center;
+    margin: 0 0 30px;
+    text-transform: uppercase;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #0B2757;
+    color: #fff;
+    padding: 6px 12px;
+    text-align: center;
+    border: 2px solid #0B2757;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #0B2757;
+    border: 2px solid #0B2757;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Layout */
+.layout {
+    display: grid;
+    grid-template-columns: 210px auto;
+}
+
+.side-menu {
+    grid-column: 1/2;
+    position: fixed;
+    background: #0B2757;
+    min-height: 100vh;
+    width: 210px;
+}
+
+.container {
+    grid-column: 2/3;
+    background: #f1f1f1;
+}
+
+#myChart {
+    margin: auto;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Side-Menubar Styling */
+.side-menu .app-name h1 {
+    margin: 10px 35px 10px 10px;
+    padding: 10px 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.side-menu .app-name h1 a {
+    color: #fff;
+}
+
+.side-menu ul {
+    margin-top: 40px;
+}
+
+.side-menu li {
+    margin: 10px 0;
+    padding: 15px 5px;
+}
+
+.side-menu li:hover {
+    background: #0A1D47;
+}
+
+.side-menu li i {
+    font-size: 22px;
+    padding-left: 10px;
+}
+
+.side-menu li a {
+    display: flex;
+    gap: 10px;
+    color: #fff;
+}
+
+/* Main Container Layout Styling */
+.container .header {
+    position: fixed;
+    top: 0;
+    height: 65px;
+    background: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: calc(100% - 210px);
+    z-index: 1;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .header a {
+    color: #0B2757;
+    display: flex;
+    gap: 7px;
+    font-weight: bold;
+}
+
+.container .content {
+    background: #f1f1f1;
+    margin: 80px 25px 40px;
+}
+
+.container .footer {
+    background: #0b0b0b;
+    color: #fff;
+    width: 100%;
+    padding: 15px 25px 10px;
+    text-align: center;
+}
+
+.container .footer p {
+    margin: 5px 0;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+.container .footer .copyright {
+    font-style: italic;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.container .content {
+    min-height: 100vh;
+}
+
+
+/* ---------------------------------------------
+    CONTENT STYLING 
+------------------------------------------------*/
+
+.expense-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.monthly-budget,
+.expense-form,
+.expense-list,
+.total-expenses {
+    margin-bottom: 15px;
+}
+
+.monthly-budget input[type="number"]::-webkit-inner-spin-button,
+.monthly-budget input[type="number"]::-webkit-outer-spin-button,
+.expense-form .amount-wrapper input[type="number"]::-webkit-inner-spin-button,
+.expense-form .amount-wrapper input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.monthly-budget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.monthly-budget label {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.monthly-budget #monthly-budget-input {
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+}
+
+.expense-form input,
+.expense-form select,
+.amount-wrapper input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.monthly-budget input:focus,
+.expense-form input:focus,
+.expense-form select:focus,
+.amount-wrapper input:focus {
+    outline: none;
+    border-color: #0B2757;
+}
+
+.expense-form .form-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.expense-form .form-flex>div {
+    width: 48%;
+}
+
+.expense-form #expense-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.expense-form button {
+    width: 100%;
+    padding: 10px 0;
+}
+
+.expense-form .reset-expense-button {
+    background-color: #a20000;
+    border: 2px solid #a20000;
+}
+
+.expense-form .reset-expense-button:hover {
+    background-color: #fff;
+    color: #a20000;
+}
+
+.expense-form #success-message {
+    display: none;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.expense-form #error-message {
+    display: none;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #aa1e2c;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Expense Table */
+
+.expense-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.expense-list table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.expense-list th,
+.expense-list td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.expense-list th {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+}
+
+.expense-list td.actions {
+    text-align: center;
+}
+
+.expense-list td.actions button {
+    padding: 5px 10px;
+    background: #0B2757;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 5px;
+    margin-bottom: 2px;
+}
+
+.expense-list td.actions button:hover {
+    background: #002f94;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.expense-list td.actions .remove-expense-btn {
+    background: #a20000;
+    color: #fff;
+}
+
+.expense-list td.actions .remove-expense-btn:hover {
+    background-color: #d50000;
+}
+
+.total-expenses {
+    text-align: center;
+}
+
+.dollar-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+}
+
+.required {
+    color: #a20000;
+    margin-left: 3px;
+}
+
+.date-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* About Us */
+
+#aboutUs-wrapper {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+}
+
+#aboutUs-wrapper h3 {
+    margin-top: 25px;
+}
+
+.aboutUs-container {
+    display: flex;
+    gap: 1em;
+}
+
+.aboutUs-flexContainer {
+    padding: 20px;
+    color: white;
+    border-style: solid;
+    background-color: #0B2757;
+    border-radius: 10px;
+    text-align: center;
+    width: 33%;
+}
+
+.aboutUs-flexContainer h3 {
+    color: white;
+    letter-spacing: 0.02em;
+}
+
+.aboutUs-flexContainer ul {
+    display: none;
+    text-align: left;
+}
+
+.aboutUs-flexContainer ul li {
+    padding: 4px;
+    font-size: 15px;
+}
+
+.aboutUs-icon {
+    display: block;
+    font-size: 3em;
+    color: white;
+}
+
+/* Profile Information */
+.profile-dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: -20px;
+    background-color: #f9f9f9;
+    min-width: 220px;
+    box-shadow: 2px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding-bottom: 15px;
+}
+
+.dropdown-content img {
+    display: block;
+    width: 70px;
+    height: 70px;
+    border: 1px solid #9e9e9e;
+    border-radius: 50%;
+    margin: 10px auto;
+}
+
+.dropdown-content p {
+    display: block;
+    color: #111;
+    font-weight: bold;
+    padding: 8px 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+.dropdown-content .user-email {
+    font-size: 14px;
+    text-transform: none;
+    color: #444;
+}
+
+/* Budget metrics cards */
+#budget-metrics {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+#budget-metrics .card {
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 15px;
+    width: 31%;
+    max-width: 285px;
+    text-align: center;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+#budget-metrics .total-expenses-card {
+    background-color: #f76c6c;
+}
+
+#budget-metrics .remaining-budget-card {
+    background-color: #4caf50;
+}
+
+#budget-metrics .expenses-count-card {
+    background-color: #2196f3;
+}
+
+#budget-metrics .card h3 {
+    color: #fff;
+    margin: 10px 0;
+    letter-spacing: 0.03em;
+}
+
+#budget-metrics .card i {
+    font-size: 28px;
+}
+
+.card p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Notification */
+#notify-low-budget,
+.empty-piechart {
+    display: none;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #a3222f;
+    padding: 15px;
+    max-width: 900px;
+    margin: 20px auto;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Badges */
+.badge-mainHeader {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#badges {
+    margin: 20px auto;
+    max-width: 1000px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.badge {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge h3 {
+    margin: 10px;
+    font-size: 16px;
+}
+
+.badge i {
+    font-size: 30px;
+    color: #333;
+}
+
+.highlight-highest-category {
+    background-color: #ffbebe;
+    transition: all 0.5s ease-in-out;
+}
+
+.highlight-lowest-category {
+    background-color: #ceffbe;
+    transition: all 0.5s ease-in-out;
+}
+
+.highlight-highest-category:hover,
+.highlight-lowest-category:hover {
+    cursor: pointer;
+    scale: 1.1;
+    transition: all 0.5s ease-in-out;
+}
+
+.highlight-unused-category {
+    background-color: #ddd;
+}
+
+#badge-info {
+    margin: 0 auto;
+    padding: 30px 0 0;
+    max-width: 1000px;
+}
+
+#badge-info h3 {
+    text-align: left;
+}
+
+.color-palette {
+    display: flex;
+    gap: 10px;
+}
